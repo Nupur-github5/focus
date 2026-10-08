@@ -1,5 +1,5 @@
-const CACHE_NAME = "focus-cache-v1";
-const APP_SHELL = ["/", "/manifest.webmanifest", "/icon.svg"];
+const CACHE_NAME = "focus-cache-v2";
+const APP_SHELL = ["/", "/manifest.webmanifest", "/icon.svg", "/sounds/bell-chime.mp3"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
