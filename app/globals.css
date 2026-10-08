@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafaf9;
+  --foreground: #27272a;
+  --muted: #e7e5e4;
+  --muted-foreground: #78716c;
+  --border: #e7e5e4;
+  --card: #ffffff;
+  --ring: #0d9488;
+
+  /* Soft accent, shifts between modes */
+  --accent: #0d9488; /* focus: teal */
+  --accent-foreground: #ffffff;
+}
+
+:root[data-mode="short_break"],
+:root[data-mode="long_break"] {
+  --accent: #2563eb; /* break: calm blue */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-ring: var(--ring);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    --background: #18181b;
+    --foreground: #f4f4f5;
+    --muted: #27272a;
+    --muted-foreground: #a1a1aa;
+    --border: #3f3f46;
+    --card: #1f1f23;
+    --accent: #2dd4bf;
+    --accent-foreground: #0a0a0a;
   }
+
+  :root[data-mode="short_break"]:not([data-theme="light"]),
+  :root[data-mode="long_break"]:not([data-theme="light"]) {
+    --accent: #60a5fa;
+  }
+}
+
+:root[data-theme="dark"] {
+  --background: #18181b;
+  --foreground: #f4f4f5;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --border: #3f3f46;
+  --card: #1f1f23;
+  --accent: #2dd4bf;
+  --accent-foreground: #0a0a0a;
+}
+
+:root[data-theme="dark"][data-mode="short_break"],
+:root[data-theme="dark"][data-mode="long_break"] {
+  --accent: #60a5fa;
+}
+
+* {
+  border-color: var(--border);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+.tabular-timer {
+  font-family: var(--font-mono), ui-monospace, "SF Mono", monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .transition-mode {
+    transition: color 400ms ease, background-color 400ms ease, border-color 400ms ease;
+  }
 }

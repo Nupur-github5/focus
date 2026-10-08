@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Focus
 
-## Getting Started
+A calm, distraction-free Pomodoro timer. Open it and start focusing. 🍅
 
-First, run the development server:
+## What it does
+
+- Focus, short break and long break sessions with a timer you can adjust
+- A simple task list, so you can see how many pomodoros each task took
+- Stats for today, this week, the last 7 days, and your current streak
+- Light/dark theme, sound and notifications, keyboard shortcuts (press `?`)
+- Installable as an app (PWA) and works offline
+
+**No account needed.** There's no sign-up and no server-side database. Your tasks, settings and history are saved in your own browser (localStorage). They stay on that device, and clearing your browser data clears them too.
+
+## Run it yourself
+
+You'll need [Node.js](https://nodejs.org/) 20 or newer.
 
 ```bash
+git clone https://github.com/Nupur-github5/focus.git
+cd focus
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000. There are no environment variables to set.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Other useful commands:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint        # ESLint
+npm run typecheck   # TypeScript
+npm run test        # unit tests (Vitest)
+npm run test:e2e    # end-to-end test (Playwright)
+```
 
-## Learn More
+## Deploy your own on Vercel
 
-To learn more about Next.js, take a look at the following resources:
+1. Fork https://github.com/Nupur-github5/focus on GitHub.
+2. In [Vercel](https://vercel.com/new), click **Add New → Project** and import your fork.
+3. Keep the default settings (Vercel detects Next.js) and click **Deploy**.
+4. Optional: in your project, open the **Analytics** tab and enable Web Analytics to see page views. The `<Analytics />` component is already set up.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+No database or environment variables are needed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contributing
 
-## Deploy on Vercel
+Issues and pull requests are welcome! For anything bigger than a small fix, please open an issue first so we can talk it over. Before you open a PR, run `npm run lint`, `npm run typecheck` and `npm run test`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[MIT](LICENSE)
